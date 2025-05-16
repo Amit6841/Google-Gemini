@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-import { runChat } from '@/libs/gemini';
+import { runChat } from '../libs/gemini';
 
 type ChatContextProps = {
 	sendPrompt: (prompt: string) => Promise<void>;

@@ -1,8 +1,6 @@
 import { CircleHelp, History, Menu, Plus, Settings } from 'lucide-react';
 import { useContext, useState } from 'react';
-
-import { ChatContext } from '@/providers';
-
+import { ChatContext } from '../providers/ChatsContext';
 import RecentChatItem from './RecentChatItem';
 import SidebarMenuItem from './SidebarMenuItem';
 
@@ -28,7 +26,7 @@ const Sidebar = () => {
 
 	return (
 		<div
-			className={`hidden h-screen max-w-60 flex-col justify-between bg-brand-100 px-4 py-6 duration-500 sm:inline-flex ${
+			className={`hidden h-screen max-w-60 flex-col justify-between bg-gray-100 px-4 py-6 duration-500 sm:inline-flex ${
 				isExpanded ? 'w-60' : 'w-[4.75rem]'
 			}`}
 		>
@@ -37,12 +35,12 @@ const Sidebar = () => {
 					onClick={toggleSidebarExpand}
 					className='grid place-items-center rounded-full p-3'
 				>
-					<Menu size={14} />
+					<Menu size={18} />
 				</button>
 
 				<div
 					onClick={!isGenerating ? startNewChat : undefined}
-					className={`mt-10 inline-flex h-11 cursor-pointer items-center gap-1 rounded-full bg-brand-200 p-[0.875rem] text-sm text-brand-300 duration-300 ${
+					className={`mt-10 inline-flex h-11 cursor-pointer items-center gap-1 rounded-full bg-gray-200 p-[0.875rem] text-sm text-brand-300 duration-300 ${
 						isExpanded ? 'w-[7.25rem]' : 'w-11'
 					}`}
 				>

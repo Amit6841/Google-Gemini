@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { useContext } from 'react';
 
-import { ChatContext } from '@/providers';
+import { ChatContext } from '../providers/ChatsContext';
 
 const Main = () => {
 	const {
@@ -32,10 +32,10 @@ const Main = () => {
 	return (
 		<div className='relative h-screen flex-1 pb-[15vh]'>
 			<nav className='flex items-center justify-between px-5 py-[1.375rem] text-base font-light text-brand-300'>
-				<p>Gemini (CE)</p>
+			<img src="/gemini-brand-color.svg" alt="" className='w-20' />
 
-				<div className='grid h-10 w-10 place-items-center rounded-full bg-brand-100'>
-					<UserRound className='min-w-4' size={16} />
+				<div className='flex place-items-center gap-2 rounded-full bg-gray-200 p-2'>
+				  <UserRound className='icon text-brand-300' />
 				</div>
 			</nav>
 
@@ -73,7 +73,7 @@ const Main = () => {
 								},
 							].map(({ label, Icon }, idx) => (
 								<div
-									className='relative h-52 cursor-pointer rounded-xl bg-brand-100 p-4 duration-300 hover:bg-brand-400'
+									className='relative h-52 cursor-pointer rounded-xl bg-gray-200 p-4 duration-300 hover:bg-brand-400'
 									key={idx}
 								>
 									<p className='text-brand-300'>{label}</p>
@@ -98,13 +98,12 @@ const Main = () => {
 						<div className='flex items-start gap-5'>
 							<div className='grid h-10 min-w-10 place-items-center'>
 								<img
-									className={`-mt-[0.5625rem] aspect-square w-7 duration-500 ${
-										isPending
+									className={`-mt-[0.5625rem] aspect-square w-7 duration-500 ${isPending
 											? 'animate-pulse'
 											: isGenerating
 												? 'animate-spin'
 												: 'rotate-0 [animation-play-state:pause]'
-									}`}
+										}`}
 									src='/gemini.svg'
 									alt='gemini icon'
 								/>
@@ -113,17 +112,18 @@ const Main = () => {
 							{isPending ? (
 								<div className='flex w-full flex-col gap-2'>
 									<hr
-										className={`mt-1.5 h-5 animate-background-pan rounded-md border-none bg-brand-100 bg-gradient-to-r from-[#9ed7ff] via-[#ffffff] to-[#9ed7ff] [animation-delay:100ms] [animation-duration:3s] [background-size:800px_50px]`}
+										className={`mt-1.5 h-5 animate-background-pan rounded-md border-none bg-gray-100 bg-gradient-to-r from-[#9ed7ff] via-[#ffffff] to-[#9ed7ff] [animation-delay:100ms] [animation-duration:3s] [background-size:800px_50px]`}
 									/>
 
 									<hr
-										className={`mt-1.5 h-5 animate-background-pan rounded-md border-none bg-brand-100 bg-gradient-to-r from-[#9ed7ff] via-[#ffffff] to-[#9ed7ff] [background-size:800px_50px] [animation-delay:200ms] [animation-duration:2s]`}
+										className={`mt-1.5 h-5 animate-background-pan rounded-md border-none bg-gray-100 bg-gradient-to-r from-[#9ed7ff] via-[#ffffff] to-[#9ed7ff] [background-size:800px_50px] [animation-delay:200ms] [animation-duration:2s]`}
 									/>
 
 									<hr
 										className={`mt-1.5 h-5 w-8/12 animate-background-pan rounded-md border-none bg-brand-100 bg-gradient-to-r from-[#9ed7ff] via-[#ffffff] to-[#9ed7ff] [background-size:800px_50px] [animation-delay:300ms] [animation-duration:4s]`}
 									/>
 								</div>
+
 							) : (
 								<p
 									className='font-light leading-[1.8]'
@@ -135,7 +135,7 @@ const Main = () => {
 				)}
 
 				<div className='absolute bottom-0 mx-auto w-full max-w-[55rem] px-5 pt-4 backdrop-blur-sm'>
-					<div className='flex items-center justify-between gap-5 rounded-full bg-brand-100 px-5 py-3'>
+					<div className='flex items-center justify-between gap-5 rounded-full bg-gray-200 px-5 py-3'>
 						<input
 							onChange={(e) => setPrompt(e.target.value)}
 							onKeyDown={(e) => e.key === 'Enter' && handleSendPrompt()}
